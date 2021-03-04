@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SecurePasswordEncryptionRegistryManager"
         mc:Ignorable="d"
-        Title="S.P.E.R.M" Height="208.19" Width="475">
+        Title="S.P.E.R.M" Height="236.675" Width="475">
 
     <Grid Background="Black">
 
@@ -23,9 +23,14 @@
 
         <Button Name="GetPasswordBtn" Content="Get Password" HorizontalAlignment="Left" Margin="168,63,0,0" VerticalAlignment="Top" Width="103" Click="GetPasswordBtnClick" Grid.Column="1"/>
         <Label Name="PasswordLabel" Content="Password:" HorizontalAlignment="Left" Margin="11,102,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Consolas" FontSize="16" Grid.Column="1" Foreground="WhiteSmoke"/>
-        <TextBox Name="PasswordTextBox" HorizontalAlignment="Left" Height="26" Margin="100,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194" Grid.Column="1" Background="Black" Foreground="Gold"/>
+        <TextBox Name="PasswordTextBox" HorizontalAlignment="Left" Height="26" Margin="100,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156" Grid.Column="1" Background="Black" Foreground="Gold"/>
 
-
+        <Label Name="ShowLabel" Content="Show" Grid.Column="1" HorizontalAlignment="Left" Margin="256,93,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Consolas" FontSize="16" Foreground="WhiteSmoke"/>
+        <CheckBox Name="ShowCheckBox" Content="CheckBox" Grid.Column="1" HorizontalAlignment="Left" Margin="261,113,0,0" VerticalAlignment="Top" IsChecked="False" Checked="GetPasswordBtnClick" Unchecked="GetPasswordBtnClick"/>
+        
+        <Label Name="JobsLabel" Content="Jobs:" Grid.Column="1" HorizontalAlignment="Left" Margin="15,139,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Consolas" FontSize="16" Foreground="WhiteSmoke"/>
+        <ComboBox Name="Jobs" Grid.Column="1" HorizontalAlignment="Left" Margin="77,143,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Consolas" FontSize="16" SelectionChanged="Jobs_SelectionChanged"/>
+        <Button Name ="JobRunner" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="219,145,0,0" VerticalAlignment="Top" Width="75" Click="JobRunner_Click"/>
 
         <TextBlock FontSize="22" Grid.Column="1" Margin="310,19,44,110" FontFamily="Consolas">
             <Run Foreground="Red">S</Run>
@@ -47,6 +52,9 @@
             <Run Foreground="Red">M</Run>
             <Run Foreground="LimeGreen">anager</Run>
         </TextBlock>
+        
+
+
 
 
 

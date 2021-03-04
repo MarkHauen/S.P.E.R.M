@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SecurePasswordEncryptionRegistryManager.Tools
 {
@@ -64,6 +61,8 @@ namespace SecurePasswordEncryptionRegistryManager.Tools
 
             return result;
         }
+
+        
 
         //source: https://msdn.microsoft.com/de-de/library/system.security.cryptography.aes(v=vs.110).aspx
         private static string EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
@@ -136,17 +135,22 @@ namespace SecurePasswordEncryptionRegistryManager.Tools
             return plaintext;
         }
 
+        internal string Obscure(string pwtext, bool getValueOrDefault)
+        {
+            return getValueOrDefault ? pwtext : "********************";
+        }
+
         internal string GeneratePassword()
         {
             string newPassword = "";
             for(int i = 0; i < 20; i++)
             {
-                newPassword += getRandomCharactor();
+                newPassword += GetRandomCharactor();
             }
             return newPassword;
         }
 
-        private string getRandomCharactor()
+        private string GetRandomCharactor()
         {
             return new string[] { 
                 "!", "@", "#", "$", "%", "^", "&", "*",
