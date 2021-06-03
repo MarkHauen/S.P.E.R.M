@@ -62,9 +62,12 @@ namespace SecurePasswordEncryptionRegistryManager
             
             if (crypto.Encrypt(MasterPasswordText.Password, MasterPasswordText.Password).Equals(ioTools.getEncryptedPassword("_Master")))
             {
-                foreach (string entry in ioTools.getAvailablePasswords())
+                if (AvailablePasswords.Items.Count < 1 )
                 {
-                    AvailablePasswords.Items.Add(entry);
+                    foreach (string entry in ioTools.getAvailablePasswords())
+                    {
+                        AvailablePasswords.Items.Add(entry);
+                    }
                 }
                 ShowUnlockedItems();
                 BeginLockoutCountdown();
@@ -143,7 +146,7 @@ namespace SecurePasswordEncryptionRegistryManager
 
         private async Task BeginLockoutCountdown()
         {
-            await Task.Delay(300000);
+            await Task.Delay(500000);
             MasterPasswordText.Password = "";
             this.HideLockedItems();
         }
